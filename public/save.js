@@ -37,8 +37,7 @@ function loadSave(file) {
 
 	    var transaction = db.transaction([storeName], "readwrite");
 	    var bytes = convertDataURIToBinary(file_event.target.result);
-	    transaction.objectStore(storeName).put({ timestamp: Date.now(), contents: bytes, mode: 33206 }, "/easyrpg/Save/Save01.lsd");
-	    console.log("Set: " + file_event.target.result);
+	    transaction.objectStore(storeName).put({ timestamp: new Date(), contents: bytes, mode: 33206 }, "/easyrpg/Save/Save01.lsd");
 	};
     });
     reader.readAsDataURL(file);
